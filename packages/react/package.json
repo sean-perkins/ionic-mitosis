@@ -3,15 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/ionic-react.umd.js",
-  "module": "./dist/ionic-react.es.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/ionic-react.es.js",
-      "require": "./dist/ionic-react.umd.js"
-    }
-  },
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"

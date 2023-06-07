@@ -1,7 +1,6 @@
 <script>
   import { buttonService } from "./button.service";
   import IonRippleEffect from "../ripple-effect";
-  import "./button.css";
 
   export let mode;
   export let disabled;
@@ -14,10 +13,14 @@
   export let href;
 
   function onFocus() {
-    ionFocus();
+    if (ionFocus) {
+      ionFocus();
+    }
   }
   function onBlur() {
-    ionBlur();
+    if (ionBlur) {
+      ionBlur();
+    }
   }
   $: classes = () => {
     return buttonService.getClasses(mode, disabled, className);

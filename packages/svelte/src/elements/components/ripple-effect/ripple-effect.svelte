@@ -1,5 +1,4 @@
 <script>
-  import "./button.css";
   import { rippleEffectService } from "./ripple-effect.service";
 
   export let mode;

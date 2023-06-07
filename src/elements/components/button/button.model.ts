@@ -1,4 +1,4 @@
-import type { BaseProps, BaseState, Color, Dynamic, Mode } from '~/models';
+import type { BaseProps, BaseState, Color, Dynamic, Mode } from '../../../models';
 
 export interface ButtonProps extends BaseProps {
   mode?: Dynamic<Mode>;

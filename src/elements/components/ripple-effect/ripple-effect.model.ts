@@ -1,4 +1,4 @@
-import type { BaseProps, BaseState, Dynamic, Mode } from '~/models';
+import type { BaseProps, BaseState, Dynamic, Mode } from '../../../models';
 
 export interface RippleEffectProps extends BaseProps {
   mode?: Dynamic<Mode>;

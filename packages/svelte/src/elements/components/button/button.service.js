@@ -1,4 +1,4 @@
-import { classesToString, debug } from "~/helpers";
+import { classesToString, debug } from "../../../helpers";
 class ButtonService {
   getClasses(mode, disabled, className) {
     const base = classesToString([

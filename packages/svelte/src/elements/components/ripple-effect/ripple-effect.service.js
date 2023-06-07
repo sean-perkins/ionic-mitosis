@@ -1,4 +1,4 @@
-import { classesToString, debug } from "~/helpers";
+import { classesToString, debug } from "../../../helpers";
 class RippleEffectService {
   getClasses(mode, type, className) {
     const base = classesToString([

@@ -5,7 +5,7 @@ import { buttonService } from "./button.service";
 
 import { default as IonRippleEffect } from "../ripple-effect";
 
-import "./button.css";
+// import "./button.css";
 
 useMetadata({
   isAttachedToShadowDom: true,
@@ -40,10 +40,14 @@ export default function IonButton(props: ButtonProps) {
       return "bounded";
     },
     onFocus() {
-      props.ionFocus();
+      if (props.ionFocus) {
+        props.ionFocus();
+      }
     },
     onBlur() {
-      props.ionBlur();
+      if (props.ionBlur) {
+        props.ionBlur();
+      }
     },
   });
 

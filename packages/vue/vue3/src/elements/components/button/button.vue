@@ -41,7 +41,6 @@ import { defineComponent } from "vue";
 import type { ButtonProps, ButtonState } from "./button.model";
 import { buttonService } from "./button.service";
 import IonRippleEffect from "../ripple-effect";
-import "./button.css";
 
 export default defineComponent({
   name: "ion-button",
@@ -82,10 +81,14 @@ export default defineComponent({
 
   methods: {
     onFocus() {
-      this.ionFocus();
+      if (this.ionFocus) {
+        this.ionFocus();
+      }
     },
     onBlur() {
-      this.ionBlur();
+      if (this.ionBlur) {
+        this.ionBlur();
+      }
     },
     _classStringToObject(str: string) {
       const obj: Record<string, boolean> = {};

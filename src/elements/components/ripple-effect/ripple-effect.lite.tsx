@@ -1,5 +1,5 @@
 import { useMetadata, useStore } from "@builder.io/mitosis";
-import "./button.css";
+// import "./button.css";
 import type {
   RippleEffectProps,
   RippleEffectState,
