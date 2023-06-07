@@ -1,11 +1,10 @@
 {
-  "name": "ionic-mitosis",
+  "name": "root",
   "private": true,
-  "version": "0.0.1",
   "scripts": {
     "mitosis": "mitosis build",
-    "build": "yarn run mitosis",
-    "start": "watch 'yarn run mitosis' ./src ./overrides"
+    "build": "npm run mitosis",
+    "start": "watch 'npm run mitosis' ./src ./overrides"
   },
   "dependencies": {
     "@builder.io/mitosis": "^0.0.106",
@@ -13,10 +12,25 @@
   },
   "devDependencies": {
     "@builder.io/eslint-plugin-mitosis": "^0.0.14",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-dynamic-import-vars": "^2.0.3",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "eslint": "^8.17.0",
     "prettier": "^2.5.0",
-    "typescript": "^4.8.4"
+    "turbo": "^1.10.2",
+    "typescript": "^4.8.4",
+    "rollup": "^3.20.2",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-embed-css": "^1.0.26",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-ts": "^3.2.0",
+    "rollup-plugin-visualizer": "^5.9.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "rollup-preset-solid": "^2.0.1"
   }
 }

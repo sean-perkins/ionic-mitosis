@@ -1,0 +1,33 @@
+{
+  "name": "@ionic/react",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/ionic-react.umd.js",
+  "module": "./dist/ionic-react.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/ionic-react.es.js",
+      "require": "./dist/ionic-react.umd.js"
+    }
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "rollup": "^3.20.2",
+    "rollup-plugin-sourcemaps": "^0.6.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run tsc",
+    "tsc": "tsc -p . --sourceMap false"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

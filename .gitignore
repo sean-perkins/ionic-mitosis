@@ -1,1 +1,8 @@
 node_modules/
+.turbo/
+
+/packages/**/src
+/packages/**/dist
+/packages/**/.angular
+/packages/**/playwright*
+/packages/**/test-results
