@@ -2,10 +2,14 @@
   <div role="presentation" :class="_classStringToObject(classes.base)"></div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 
 import "./button.css";
+import type {
+  RippleEffectProps,
+  RippleEffectState,
+} from "./ripple-effect.model";
 import { rippleEffectService } from "./ripple-effect.service";
 
 export default defineComponent({
@@ -24,8 +28,8 @@ export default defineComponent({
   },
 
   methods: {
-    _classStringToObject(str) {
-      const obj = {};
+    _classStringToObject(str: string) {
+      const obj: Record<string, boolean> = {};
       if (typeof str !== "string") {
         return obj;
       }

@@ -7,7 +7,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "lib": ["dom", "es2015"],
+    "lib": ["dom", "es2017"],
     "module": "es2015",
     "moduleResolution": "node",
     "noImplicitAny": false,
@@ -18,7 +18,12 @@
     "removeComments": false,
     "sourceMap": true,
     "jsx": "react",
-    "target": "es2015"
+    "target": "es2015",
+    "paths": {
+      "~/helpers/*": ["./src/helpers/*"],
+      "~/models/*": ["./src/models/*"],
+      "~/*": ["./src/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "src/**/*.spec.tsx"],

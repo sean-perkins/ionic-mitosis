@@ -35,9 +35,10 @@
   </template>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 
+import type { ButtonProps, ButtonState } from "./button.model";
 import { buttonService } from "./button.service";
 import IonRippleEffect from "../ripple-effect";
 import "./button.css";
@@ -86,8 +87,8 @@ export default defineComponent({
     onBlur() {
       this.ionBlur();
     },
-    _classStringToObject(str) {
-      const obj = {};
+    _classStringToObject(str: string) {
+      const obj: Record<string, boolean> = {};
       if (typeof str !== "string") {
         return obj;
       }

@@ -25,6 +25,8 @@ export interface ButtonProps extends BaseProps {
 
   // Slots
   slotIconOnly?: any;
+  slotStart?: any;
+  slotEnd?: any;
 }
 
 export interface ButtonState extends BaseState {
