@@ -1,16 +1,33 @@
 .ion-button {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  background-image: none;
-  cursor: pointer;
   display: inline-block;
-  padding: 0.4rem 1rem;
-  text-align: center;
-  touch-action: manipulation;
-  user-select: none;
 
-  &.is-disabled {
-    pointer-events: none;
-  }
+  width: auto;
+
+  color: var(--color);
+
+  /* font-family:  */
+
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  user-select: none;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+
+  font-kerning: none;
+}
+
+.ion-button--disabled {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.ion-button.ion-button--ios {
+}
+
+.ion-button.ion-button--md {
 }

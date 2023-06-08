@@ -1,4 +1,11 @@
-import { useMetadata, useStore, Show, Slot, useRef } from "@builder.io/mitosis";
+import {
+  useMetadata,
+  useStore,
+  useDefaultProps,
+  Show,
+  Slot,
+  onInit,
+} from "@builder.io/mitosis";
 
 import type { ButtonProps, ButtonState } from "./button.model";
 import { buttonService } from "./button.service";
@@ -12,8 +19,14 @@ useMetadata({
   outputs: ["ionFocus", "ionBlur"],
 });
 
+useDefaultProps<ButtonProps>({
+  mode: "md",
+  disabled: false,
+  strong: false,
+  type: "button",
+});
+
 export default function IonButton(props: ButtonProps) {
-  const iconSlotRef = useRef();
   const state = useStore<ButtonState>({
     get classes() {
       return buttonService.getClasses(
@@ -23,6 +36,9 @@ export default function IonButton(props: ButtonProps) {
       );
     },
     get hasIconOnly() {
+      // TODO this is incorrect across outputs
+      // works for JSX/React, but not for Angular for example.
+      // Need to query the slot or think of a different way to do this.
       return props.slotIconOnly !== undefined;
     },
     get rippleType(): "bounded" | "unbounded" {
@@ -30,15 +46,13 @@ export default function IonButton(props: ButtonProps) {
 
       // If the button is in a toolbar, has a clear fill (which is the default)
       // and only has an icon we use the unbounded "circular" ripple effect
-      // if (hasClearFill && props.hasIconOnly && props.inToolbar) {
-      //   return 'unbounded';
-      // }
-      if (state.hasIconOnly) {
+      if (hasClearFill && state.hasIconOnly && state.inToolbar) {
         return "unbounded";
       }
 
       return "bounded";
     },
+    inToolbar: false,
     onFocus() {
       if (props.ionFocus) {
         props.ionFocus();
@@ -49,6 +63,16 @@ export default function IonButton(props: ButtonProps) {
         props.ionBlur();
       }
     },
+    onClick() {
+      if (props.type === "button") {
+        // TODO openURL
+      }
+    },
+  });
+
+  onInit(() => {
+    // TODO need to find closest ion-toolbar to this button reference
+    state.inToolbar = !!document.querySelector("ion-toolbar");
   });
 
   return (
@@ -58,6 +82,7 @@ export default function IonButton(props: ButtonProps) {
           class={state.classes.base}
           onFocus={() => state.onFocus()}
           onBlur={() => state.onBlur()}
+          onClick={() => state.onClick()}
         >
           <span class="button-inner">
             <Slot name="icon-only" />
@@ -76,6 +101,7 @@ export default function IonButton(props: ButtonProps) {
           href={props.href}
           onFocus={() => state.onFocus()}
           onBlur={() => state.onBlur()}
+          onClick={() => state.onClick()}
         >
           <span class="button-inner">
             <Slot name="icon-only" />

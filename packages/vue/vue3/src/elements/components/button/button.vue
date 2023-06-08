@@ -4,6 +4,7 @@
       :class="_classStringToObject(classes.base)"
       @focus="onFocus()"
       @blur="onBlur()"
+      @click="onClick()"
     >
       <span class="button-inner">
         <slot name="icon-only"></slot>
@@ -24,6 +25,7 @@
       :href="href"
       @focus="onFocus()"
       @blur="onBlur()"
+      @click="onClick()"
     >
       <span class="button-inner">
         <slot name="icon-only"></slot>
@@ -45,23 +47,34 @@ import IonRippleEffect from "../ripple-effect";
 export default defineComponent({
   name: "ion-button",
   components: { IonRippleEffect: IonRippleEffect },
-  props: [
-    "mode",
-    "disabled",
-    "className",
-    "fill",
-    "hasIconOnly",
-    "inToolbar",
-    "ionFocus",
-    "ionBlur",
-    "href",
-  ],
+  props: {
+    mode: { default: "md" },
+    disabled: { default: false },
+    className: { default: undefined },
+    fill: { default: undefined },
+    ionFocus: { default: undefined },
+    ionBlur: { default: undefined },
+    type: { default: "button" },
+    href: { default: undefined },
+  },
+
+  data() {
+    return { inToolbar: false };
+  },
+
+  created() {
+    // TODO need to find closest ion-toolbar to this button reference
+    this.inToolbar = !!document.querySelector("ion-toolbar");
+  },
 
   computed: {
     classes() {
       return buttonService.getClasses(this.mode, this.disabled, this.className);
     },
     hasIconOnly() {
+      // TODO this is incorrect across outputs
+      // works for JSX/React, but not for Angular for example.
+      // Need to query the slot or think of a different way to do this.
       return this.$slots.icononly !== undefined;
     },
     rippleType() {
@@ -69,10 +82,7 @@ export default defineComponent({
 
       // If the button is in a toolbar, has a clear fill (which is the default)
       // and only has an icon we use the unbounded "circular" ripple effect
-      // if (hasClearFill && props.hasIconOnly && props.inToolbar) {
-      //   return 'unbounded';
-      // }
-      if (this.hasIconOnly) {
+      if (hasClearFill && this.hasIconOnly && this.inToolbar) {
         return "unbounded";
       }
       return "bounded";
@@ -88,6 +98,11 @@ export default defineComponent({
     onBlur() {
       if (this.ionBlur) {
         this.ionBlur();
+      }
+    },
+    onClick() {
+      if (this.type === "button") {
+        // TODO openURL
       }
     },
     _classStringToObject(str: string) {

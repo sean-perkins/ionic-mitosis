@@ -33,6 +33,8 @@ export interface ButtonState extends BaseState {
   classes: { base: string };
   rippleType: 'bounded' | 'unbounded';
   hasIconOnly: boolean;
+  inToolbar: boolean;
   onFocus: () => void;
   onBlur: () => void;
+  onClick: () => void;
 }
