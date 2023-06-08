@@ -43,6 +43,7 @@ import { defineComponent } from "vue";
 import type { ButtonProps, ButtonState } from "./button.model";
 import { buttonService } from "./button.service";
 import IonRippleEffect from "../ripple-effect";
+import "./button.css";
 
 export default defineComponent({
   name: "ion-button",

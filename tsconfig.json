@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ES5",
+    "target": "es2017",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": false,
@@ -15,7 +15,6 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "verbatimModuleSyntax": true,
     "paths": {
       "~/helpers/*": ["./src/helpers/*"],
       "~/models/*": ["./src/models/*"],

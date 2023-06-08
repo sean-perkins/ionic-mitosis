@@ -1,6 +1,7 @@
 <script>
   import { buttonService } from "./button.service";
   import IonRippleEffect from "../ripple-effect";
+  import "./button.css";
 
   export let mode = "md";
   export let disabled = false;
