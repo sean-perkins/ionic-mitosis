@@ -3,7 +3,7 @@ import { useMetadata, useStore, Show, Slot, useRef } from "@builder.io/mitosis";
 import type { ButtonProps, ButtonState } from "./button.model";
 import { buttonService } from "./button.service";
 
-import { default as IonRippleEffect } from "../ripple-effect";
+import IonRippleEffect from "../ripple-effect";
 
 // import "./button.css";
 
