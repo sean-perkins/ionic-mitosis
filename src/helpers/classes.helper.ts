@@ -12,5 +12,5 @@ export function classesToString(classes: (string | any)[]): string {
     }
   });
 
-  return stringWithClasses;
+  return stringWithClasses.trim();
 }
