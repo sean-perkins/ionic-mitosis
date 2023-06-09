@@ -25,8 +25,16 @@ const optionDefinitions = [
     {
       title: "Compile Mitosis Elements",
       task: () => {
-        return new Listr(
-          cliConfig.platforms.map((platform) => ({
+        return new Listr([
+          {
+            task: () =>
+              execaCommand("npm run build").catch((error) => {
+                throw new Error(
+                  `Error compiling Mitosis Elements: ${error.message}`
+                );
+              }),
+          },
+          ...cliConfig.platforms.map((platform) => ({
             title: `Compile ${platform} Elements`,
             task: () =>
               execaCommand(
@@ -39,10 +47,17 @@ const optionDefinitions = [
                 throw new Error(`Error compiling ${platform} ${error.message}`);
               }),
           })),
-          { concurrent: true }
-        );
+        ]);
       },
     },
+    // {
+    //   title: "Compile Framework Mitosis Elements",
+    //   task: () => {
+    //     return new Listr(
+
+    //     );
+    //   },
+    // },
     {
       title: "Compile Framework Components",
       task: () => {

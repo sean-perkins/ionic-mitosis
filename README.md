@@ -8,18 +8,10 @@ This project uses pnpm.
 pnpm install
 ```
 
-### Building Mitosis (UI components)
+### Building Mitosis & Framework Libs
 
 ```bash
-npm run build
-```
-
-### Building Framework Library
-
-Replace `@ionic/react` with the framework you want to build. For example `@ionic/vue` or `@ionic/angular`.
-
-```bash
-npx turbo run build --filter=@ionic/react
+npm run compile
 ```
 
 ### Run the test app
