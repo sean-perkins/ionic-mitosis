@@ -8,5 +8,6 @@ module.exports = {
     require("autoprefixer"),
     require("postcss-discard-comments"),
   ],
+  parser: require("postcss-scss"),
   inject: true,
 };

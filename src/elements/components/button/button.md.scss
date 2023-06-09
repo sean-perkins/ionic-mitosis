@@ -1,0 +1,20 @@
+@import "./button.md.vars.scss";
+
+.ion-button.ion-button-mode--md {
+  --border-radius: #{$button-md-border-radius};
+  --padding-top: #{$button-md-padding-top};
+  --padding-bottom: #{$button-md-padding-bottom};
+  --padding-start: #{$button-md-padding-start};
+  --padding-end: #{$button-md-padding-end};
+  --transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 15ms linear, color 15ms linear;
+
+  height: #{$button-md-height};
+
+  font-size: #{$button-md-font-size};
+  font-weight: #{$button-md-font-weight};
+
+  letter-spacing: #{$button-md-letter-spacing};
+
+  text-transform: #{$button-md-text-transform};
+}

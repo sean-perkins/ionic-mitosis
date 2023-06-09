@@ -1,0 +1,79 @@
+@import "./button.md.scss";
+@import "./button.ios.scss";
+
+.ion-button {
+  display: inline-block;
+
+  width: auto;
+
+  color: var(--color);
+
+  /* font-family:  */
+
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  user-select: none;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+
+  font-kerning: none;
+
+  // prev: .button-native
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  transition: var(--transition);
+
+  border-width: var(--border-width);
+  border-style: var(--border-style);
+  border-color: var(--border-color);
+
+  outline: none;
+
+  background: var(--background);
+
+  line-height: 1;
+
+  box-shadow: var(--box-shadow);
+
+  contain: layout style;
+  cursor: pointer;
+
+  opacity: var(--opacity);
+  overflow: var(--overflow);
+
+  z-index: 0;
+  box-sizing: border-box;
+  appearance: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  .button-inner {
+    display: flex;
+    position: relative;
+
+    flex-flow: row nowrap;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+  }
+}
+
+.ion-button--disabled {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}

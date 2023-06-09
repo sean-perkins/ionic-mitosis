@@ -12,8 +12,9 @@ import { buttonService } from "./button.service";
 
 import IonRippleEffect from "../ripple-effect";
 
-import "./button.css";
+import "./button.scss";
 import { Mode } from "../../../models/mode.model";
+import { Color } from "../../../models/color.model";
 
 useMetadata({
   isAttachedToShadowDom: true,
@@ -21,10 +22,11 @@ useMetadata({
 });
 
 useDefaultProps<ButtonProps>({
-  mode: "md" as Mode,
+  mode: Mode.MD,
   disabled: false,
   strong: false,
   type: "button",
+  color: Color.Primary,
 });
 
 export default function IonButton(props: ButtonProps) {
@@ -32,6 +34,7 @@ export default function IonButton(props: ButtonProps) {
     get classes() {
       return buttonService.getClasses(
         props.mode,
+        props.color,
         props.disabled,
         props.className
       );

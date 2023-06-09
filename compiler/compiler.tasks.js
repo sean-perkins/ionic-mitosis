@@ -50,14 +50,6 @@ const optionDefinitions = [
         ]);
       },
     },
-    // {
-    //   title: "Compile Framework Mitosis Elements",
-    //   task: () => {
-    //     return new Listr(
-
-    //     );
-    //   },
-    // },
     {
       title: "Compile Framework Components",
       task: () => {
@@ -66,7 +58,7 @@ const optionDefinitions = [
             title: `Compile @ionic/${platform}`,
             task: () =>
               execaCommand(
-                `npx turbo run build --filter=@ionic/${platform}`
+                `npx turbo run build --filter=@ionic/${platform} --force`
               ).catch((error) => {
                 throw new Error(`Error compiling ${platform} ${error.message}`);
               }),

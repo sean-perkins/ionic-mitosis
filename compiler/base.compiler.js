@@ -43,21 +43,42 @@ async function compile(defaultOptions) {
     : glob.sync(options.elements);
   const outPath = `${options.dest}/${options.target}`;
 
-  async function compileCssFiles() {
+  async function copyScssThemeFiles() {
+    const scssFiles = glob.sync("src/**/*.scss");
+
+    scssFiles.forEach((file) => {
+      const fileParsed = path.parse(file);
+      const dir = `${outPath}/${fileParsed.dir}`;
+      const name = `${dir}/${fileParsed.base}`;
+
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+      }
+      fs.copyFileSync(file, name);
+    });
+  }
+
+  async function compileScssFiles() {
     const postcssConfig = (await import("../postcss.config.cjs")).default;
-    // Copy all css files from the src folder to the output folder
-    const cssFiles = glob.sync("src/**/*.css");
+    const cssFiles = glob.sync("src/elements/**/*.scss");
 
     for (const file of cssFiles) {
       const fileParsed = path.parse(file);
       const name = `${outPath}/${fileParsed.dir}/${fileParsed.base}`;
 
-      const data = fs.readFileSync(file, "utf8");
+      fs.copyFileSync(file, name);
+
+      const data = fs.readFileSync(name, "utf8");
+
+      console.log("reading file: ", name);
+
       const result = await postcss(postcssConfig.plugins).process(data, {
         from: name,
         to: name,
+        parser: postcssConfig.parser,
       });
-      console.log("copying file: ", file, "to: ", name);
+
+      console.log("attempting to write to", name);
       fs.writeFileSync(name, result.css, () => true);
     }
   }
@@ -65,7 +86,9 @@ async function compile(defaultOptions) {
   for (const fileName of files) {
     spinner.text = fileName;
 
-    await compileCssFiles();
+    await copyScssThemeFiles();
+
+    await compileScssFiles();
 
     spinner.stop();
   }
