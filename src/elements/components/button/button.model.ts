@@ -1,7 +1,7 @@
 import type { BaseProps, BaseState, Color, Dynamic, Mode } from '../../../models';
 
 export interface ButtonProps extends BaseProps {
-  mode?: Dynamic<Mode>;
+  mode?: Mode;
   color?: Dynamic<Color>;
   /**
    * If `true`, the user cannot interact with the button.

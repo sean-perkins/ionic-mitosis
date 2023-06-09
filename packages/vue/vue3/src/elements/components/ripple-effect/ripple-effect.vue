@@ -10,6 +10,7 @@ import type {
   RippleEffectState,
 } from "./ripple-effect.model";
 import { rippleEffectService } from "./ripple-effect.service";
+import "ripple-effect.css";
 
 export default defineComponent({
   name: "ion-ripple-effect",

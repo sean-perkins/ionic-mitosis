@@ -1,10 +1,10 @@
 import { useMetadata, useStore } from "@builder.io/mitosis";
-// import "./button.css";
 import type {
   RippleEffectProps,
   RippleEffectState,
 } from "./ripple-effect.model";
 import { rippleEffectService } from "./ripple-effect.service";
+import "./ripple-effect.css";
 
 useMetadata({
   isAttachedToShadowDom: true,

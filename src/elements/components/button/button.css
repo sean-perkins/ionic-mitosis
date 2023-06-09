@@ -27,7 +27,9 @@
 }
 
 .ion-button.ion-button--ios {
+  border-radius: 12px;
 }
 
 .ion-button.ion-button--md {
+  border-radius: 4px;
 }

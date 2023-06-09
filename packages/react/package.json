@@ -10,10 +10,6 @@
     ".": {
       "import": "./dist/ionic-react.es.js",
       "require": "./dist/ionic-react.umd.js"
-    },
-    "./ionic.css": {
-      "import": "./dist/themes/ionic.css",
-      "require": "./dist/themes/ionic.css"
     }
   },
   "peerDependencies": {
@@ -28,8 +24,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run tsc && rollup -c",
-    "tsc": "tsc -p . --sourceMap false"
+    "build": "rollup -c"
   },
   "publishConfig": {
     "access": "public"

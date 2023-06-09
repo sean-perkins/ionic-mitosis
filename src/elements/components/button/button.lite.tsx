@@ -12,7 +12,8 @@ import { buttonService } from "./button.service";
 
 import IonRippleEffect from "../ripple-effect";
 
-// import "./button.css";
+import "./button.css";
+import { Mode } from "../../../models/mode.model";
 
 useMetadata({
   isAttachedToShadowDom: true,
@@ -20,7 +21,7 @@ useMetadata({
 });
 
 useDefaultProps<ButtonProps>({
-  mode: "md",
+  mode: "md" as Mode,
   disabled: false,
   strong: false,
   type: "button",
